@@ -25,4 +25,5 @@ src\main\java\br\com\rpggame\personagens\Mago.java
 src\main\java\br\com\rpggame\personagens\Personagem.java
 src\main\java\br\com\rpggame\services\CombatService.java
 src\main\java\br\com\rpggame\services\ExplorationService.java
+src\main\java\br\com\rpggame\services\ItemService.java
 src\main\java\br\com\rpggame\services\SaveService.java

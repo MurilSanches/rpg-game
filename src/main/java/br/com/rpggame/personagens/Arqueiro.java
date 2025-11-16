@@ -33,7 +33,8 @@ public class Arqueiro extends Personagem {
 
 	@Override
 	protected void aoSubirNivel() {
-		setPontosVida(getPontosVida() + 8);
+		setPontosVidaMaximo(getPontosVidaMaximo() + 8);
+		setPontosVida(getPontosVidaMaximo());
 		setAtaque(getAtaque() + 4);
 		setDefesa(getDefesa() + 2);
 	}

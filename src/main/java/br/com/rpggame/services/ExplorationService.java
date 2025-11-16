@@ -45,10 +45,11 @@ public class ExplorationService {
 		InimigoTemplate t = InimigosBaseData.INIMIGOS_BASE.get(idx);
 		int nivelJogador = jogador.getNivel();
 
-		double escala = InimigosProgressaoConstants.obterEscalaAtributos(t.nome);
-		int hpEscalado = escalarAtributo(t.hp, escala, nivelJogador);
-		int atkEscalado = escalarAtributo(t.atk, escala, nivelJogador);
-		int defEscalado = escalarAtributo(t.def, escala, nivelJogador);
+		double escalaDefHp = InimigosProgressaoConstants.obterEscalaAtributos(t.nome);
+		double escalaAtk = InimigosProgressaoConstants.obterEscalaAtaque(t.nome);
+		int hpEscalado = escalarAtributo(t.hp, escalaDefHp, nivelJogador);
+		int atkEscalado = escalarAtributo(t.atk, escalaAtk, nivelJogador);
+		int defEscalado = escalarAtributo(t.def, escalaDefHp, nivelJogador);
 
 		Inimigo i = new Inimigo(t.nome, hpEscalado, atkEscalado, defEscalado, nivelJogador, new Inventario());
 		i.getInventario().adicionar(new Item(t.loot));

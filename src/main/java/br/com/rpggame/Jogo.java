@@ -92,7 +92,10 @@ public class Jogo {
 	private void loopPrincipal() throws IOException {
 		while (jogador.estaVivo()) {
 			io.println("");
-			io.println("Herói: " + jogador.getNome() + " | HP: " + jogador.getPontosVida() + " | Nível: " + jogador.getNivel());
+			io.println("Herói: " + jogador.getNome()
+				+ " | HP: " + jogador.getPontosVida() + "/" + jogador.getPontosVidaMaximo()
+				+ " | Nível: " + jogador.getNivel()
+				+ " | XP: " + jogador.getExperiencia() + "/" + jogador.getExperienciaParaProximoNivel());
 			io.println("Ações: 1) Explorar  2) Usar item  3) Fugir  4) Inventário  5) Salvar  6) Restaurar  0) Sair");
 			String op = io.readOption("Escolha: ", OPCOES_MENU);
 			switch (op) {

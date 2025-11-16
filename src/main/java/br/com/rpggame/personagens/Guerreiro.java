@@ -35,7 +35,8 @@ public class Guerreiro extends Personagem {
 
 	@Override
 	protected void aoSubirNivel() {
-		setPontosVida(getPontosVida() + 12);
+		setPontosVidaMaximo(getPontosVidaMaximo() + 12);
+		setPontosVida(getPontosVidaMaximo());
 		setAtaque(getAtaque() + 4);
 		setDefesa(getDefesa() + 3);
 	}

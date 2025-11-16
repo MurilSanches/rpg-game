@@ -66,7 +66,8 @@ public class Mago extends Personagem {
 
 	@Override
 	protected void aoSubirNivel() {
-		setPontosVida(getPontosVida() + 6);
+		setPontosVidaMaximo(getPontosVidaMaximo() + 6);
+		setPontosVida(getPontosVidaMaximo());
 		setAtaque(getAtaque() + 3);
 		setDefesa(getDefesa() + 2);
 

@@ -9,6 +9,7 @@ public abstract class Personagem {
 
 	private String nome;
 	private int pontosVida;
+	private int pontosVidaMaximo;
 	private int ataque;
 	private int defesa;
 	private int nivel;
@@ -25,6 +26,7 @@ public abstract class Personagem {
 
 	protected Personagem(String nome, int pontosVida, int ataque, int defesa, int nivel, Inventario inventario) {
 		setNome(nome);
+		this.pontosVidaMaximo = Math.max(0, pontosVida);
 		setPontosVida(pontosVida);
 		setAtaque(ataque);
 		setDefesa(defesa);
@@ -35,7 +37,7 @@ public abstract class Personagem {
 	}
 
 	protected Personagem(Personagem outro) {
-		this(outro.nome, outro.pontosVida, outro.ataque, outro.defesa, outro.nivel,
+		this(outro.nome, outro.pontosVidaMaximo, outro.ataque, outro.defesa, outro.nivel,
 			outro.inventario == null ? new Inventario() : outro.inventario.clone());
 		this.experiencia = outro.experiencia;
 		this.experienciaParaProximoNivel = outro.experienciaParaProximoNivel;
@@ -60,7 +62,20 @@ public abstract class Personagem {
 
 	public void setPontosVida(int pontosVida) {
 		if (pontosVida < 0) pontosVida = 0;
+		if (pontosVida > pontosVidaMaximo) pontosVida = pontosVidaMaximo;
 		this.pontosVida = pontosVida;
+	}
+
+	public int getPontosVidaMaximo() {
+		return pontosVidaMaximo;
+	}
+
+	public void setPontosVidaMaximo(int pontosVidaMaximo) {
+		if (pontosVidaMaximo < 0) pontosVidaMaximo = 0;
+		this.pontosVidaMaximo = pontosVidaMaximo;
+		if (this.pontosVida > this.pontosVidaMaximo) {
+			this.pontosVida = this.pontosVidaMaximo;
+		}
 	}
 
 	public int getAtaque() {
@@ -125,7 +140,8 @@ public abstract class Personagem {
 	}
 
 	protected void aoSubirNivel() {
-		setPontosVida(getPontosVida() + 5);
+		setPontosVidaMaximo(getPontosVidaMaximo() + 5);
+		setPontosVida(getPontosVidaMaximo());
 		setAtaque(getAtaque() + 2);
 		setDefesa(getDefesa() + 1);
 	}
