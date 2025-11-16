@@ -2,6 +2,7 @@ package br.com.rpggame.personagens;
 
 import br.com.rpggame.itens.Inventario;
 import br.com.rpggame.constants.MagoConstants;
+import br.com.rpggame.model.AtaqueResultado;
 
 public class Mago extends Personagem {
 	private int mana;
@@ -46,17 +47,14 @@ public class Mago extends Personagem {
 	}
 
 	@Override
-	public int atacar(Personagem oponente) {
-		int dano;
+	public AtaqueResultado atacar(Personagem oponente) {
 		if (mana >= manaGastoPorAtaque) {
 	
 			mana -= manaGastoPorAtaque;
 			receberBuffAtaqueTemporario(3);
-			dano = super.atacar(oponente);
-		} else {
-			dano = super.atacar(oponente);
+			return super.atacar(oponente);
 		}
-		return dano;
+		return super.atacar(oponente);
 	}
 
 	@Override
@@ -67,7 +65,7 @@ public class Mago extends Personagem {
 	@Override
 	protected void aoSubirNivel() {
 		setPontosVidaMaximo(getPontosVidaMaximo() + 6);
-		setPontosVida(getPontosVidaMaximo());
+		setPontosVida(getPontosVida() + 6);
 		setAtaque(getAtaque() + 3);
 		setDefesa(getDefesa() + 2);
 

@@ -15,6 +15,7 @@ src\main\java\br\com\rpggame\io\ConsoleIO.java
 src\main\java\br\com\rpggame\itens\Efeito.java
 src\main\java\br\com\rpggame\itens\Inventario.java
 src\main\java\br\com\rpggame\itens\Item.java
+src\main\java\br\com\rpggame\model\AtaqueResultado.java
 src\main\java\br\com\rpggame\model\EnemyInfo.java
 src\main\java\br\com\rpggame\model\ItemInfo.java
 src\main\java\br\com\rpggame\personagens\Arqueiro.java

@@ -170,6 +170,7 @@ public class Jogo {
 
 	private void tentarFugirForaDeCombate() {
 		int rolagem = Dado.rolar();
+		io.println("Rolagem para tentar fugir: " + rolagem);
 		if (rolagem >= 4) {
 			io.println("Você encontrou um caminho seguro e avançou sem problemas.");
 		} else {

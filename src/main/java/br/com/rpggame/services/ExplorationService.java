@@ -24,6 +24,7 @@ public class ExplorationService {
 
 	public Inimigo explorar(Personagem jogador) throws IOException {
 		int evento = Dado.rolar(DADO_PADRAO);
+		io.println("Rolagem de exploração: " + evento);
 		if (evento <= 2) {
 			io.println("Você não encontrou nada de interessante.");
 			return null;

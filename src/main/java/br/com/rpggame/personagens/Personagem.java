@@ -2,6 +2,7 @@ package br.com.rpggame.personagens;
 
 import br.com.rpggame.Dado;
 import br.com.rpggame.itens.Inventario;
+import br.com.rpggame.model.AtaqueResultado;
 
 public abstract class Personagem {
 	private static final int XP_BASE_PARA_NIVEL = 20;
@@ -141,7 +142,7 @@ public abstract class Personagem {
 
 	protected void aoSubirNivel() {
 		setPontosVidaMaximo(getPontosVidaMaximo() + 5);
-		setPontosVida(getPontosVidaMaximo());
+		setPontosVida(getPontosVida() + 5);
 		setAtaque(getAtaque() + 2);
 		setDefesa(getDefesa() + 1);
 	}
@@ -178,17 +179,19 @@ public abstract class Personagem {
 		return getDefesa() + buffDefesaTemporario;
 	}
 
-	public int atacar(Personagem oponente) {
+	public AtaqueResultado atacar(Personagem oponente) {
 		int ataqueEfetivo = calcularAtaqueEfetivo();
 		int defesaOponente = oponente.calcularDefesaEfetiva();
 		int dano = Math.max(0, ataqueEfetivo - defesaOponente);
 		if (dano > 0) {
 			oponente.sofrerDano(dano);
 		}
-		
+
+		int rolagemEquivalente = ataqueEfetivo - getAtaque() - buffAtaqueTemporario;
+
 		this.buffAtaqueTemporario = 0;
 		this.buffDefesaTemporario = 0;
-		return dano;
+		return new AtaqueResultado(dano, rolagemEquivalente);
 	}
 
 	public abstract Personagem copiaProfunda();

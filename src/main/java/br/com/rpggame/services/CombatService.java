@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import br.com.rpggame.Dado;
 import br.com.rpggame.io.ConsoleIO;
+import br.com.rpggame.model.AtaqueResultado;
 import br.com.rpggame.personagens.Inimigo;
 import br.com.rpggame.personagens.Personagem;
 
@@ -20,7 +21,12 @@ public class CombatService {
 		io.println("Enfrentando " + inimigo.getNome() + " (HP: " + inimigo.getPontosVida() + ")");
 		while (jogador.estaVivo() && inimigo.estaVivo()) {
 			io.println("");
-			io.println("Turno: " + jogador.getNome() + " HP=" + jogador.getPontosVida() + " | " + inimigo.getNome() + " HP=" + inimigo.getPontosVida());
+			io.println(
+				"Turno: " + jogador.getNome()
+					+ " HP=" + jogador.getPontosVida() + "/" + jogador.getPontosVidaMaximo()
+					+ " | " + inimigo.getNome()
+					+ " HP=" + inimigo.getPontosVida() + "/" + inimigo.getPontosVidaMaximo()
+			);
 			io.println("Ações: 1) Atacar  2) Usar item  3) Tentar fugir");
 			String op = io.readLine();
 			if ("2".equals(op)) {
@@ -33,12 +39,14 @@ public class CombatService {
 					io.println("Falhou em fugir!");
 				}
 			} else {
-				int dano = jogador.atacar(inimigo);
-				io.println(jogador.getNome() + " ataca! Dano causado: " + dano);
+				AtaqueResultado ataqueJogador = jogador.atacar(inimigo);
+				io.println(jogador.getNome() + " rola " + ataqueJogador.getRolagem()
+					+ " no ataque. Dano causado: " + ataqueJogador.getDano());
 			}
 			if (!inimigo.estaVivo()) break;
-			int danoInimigo = inimigo.atacar(jogador);
-			io.println(inimigo.getNome() + " ataca! Dano causado: " + danoInimigo);
+			AtaqueResultado ataqueInimigo = inimigo.atacar(jogador);
+			io.println(inimigo.getNome() + " rola " + ataqueInimigo.getRolagem()
+				+ " no ataque. Dano causado: " + ataqueInimigo.getDano());
 		}
 		if (jogador.estaVivo()) {
 			io.println("Vitória! Você derrotou " + inimigo.getNome());
@@ -49,6 +57,7 @@ public class CombatService {
 
 	public boolean tentarFugirEmCombate() {
 		int rolagem = Dado.rolar();
+		io.println("Rolagem para fugir: " + rolagem);
 		return rolagem >= 5;
 	}
 }
