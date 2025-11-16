@@ -66,16 +66,13 @@ public class Mago extends Personagem {
 
 	@Override
 	protected void aoSubirNivel() {
-		// Mago ganha menos atributos base, mas mais mana e custo de mana cresce
 		setPontosVida(getPontosVida() + 6);
 		setAtaque(getAtaque() + 3);
 		setDefesa(getDefesa() + 2);
 
-		// Aumenta o limite de mana e recarrega
 		setManaMaxima(this.manaMaxima + 5);
 		this.mana = this.manaMaxima;
 
-		// Aumenta o custo de mana do ataque especial
 		this.manaGastoPorAtaque += 1;
 	}
 }

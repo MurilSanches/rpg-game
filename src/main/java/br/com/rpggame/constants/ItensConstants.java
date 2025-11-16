@@ -8,22 +8,18 @@ import br.com.rpggame.itens.Efeito;
 import br.com.rpggame.model.ItemInfo;
 
 public final class ItensConstants {
-	// Poção
 	public static final String POCAO_NOME = "Poção";
 	public static final String POCAO_DESC = "Cura leve";
 	public static final Efeito POCAO_EFEITO = Efeito.CURA;
 
-	// Faca Afiada
 	public static final String FACA_NOME = "Faca Afiada";
 	public static final String FACA_DESC = "Causa dano direto";
 	public static final Efeito FACA_EFEITO = Efeito.DANO;
 
-	// Garra Afiada
 	public static final String GARRA_NOME = "Garra Afiada";
 	public static final String GARRA_DESC = "Dano";
 	public static final Efeito GARRA_EFEITO = Efeito.DANO;
 
-	// Escudo Quebrado
 	public static final String ESCUDO_NOME = "Escudo Quebrado";
 	public static final String ESCUDO_DESC = "Buff de defesa";
 	public static final Efeito ESCUDO_EFEITO = Efeito.BUFF_DEFESA;

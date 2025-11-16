@@ -29,16 +29,15 @@ public class Guerreiro extends Personagem {
 	}
 
 	@Override
-	protected void aoSubirNivel() {
-		// Guerreiro ganha mais vida, ataque e defesa
-		setPontosVida(getPontosVida() + 12);
-		setAtaque(getAtaque() + 4);
-		setDefesa(getDefesa() + 3);
+	public Personagem copiaProfunda() {
+		return new Guerreiro(this);
 	}
 
 	@Override
-	public Personagem copiaProfunda() {
-		return new Guerreiro(this);
+	protected void aoSubirNivel() {
+		setPontosVida(getPontosVida() + 12);
+		setAtaque(getAtaque() + 4);
+		setDefesa(getDefesa() + 3);
 	}
 }
 

@@ -91,10 +91,9 @@ public final class Item implements Comparable<Item>, Usavel, Cloneable {
 	public void aplicar(Personagem alvo) {
 		switch (efeito) {
 			case CURA:
-				// Cura escala levemente com o nível do personagem
 				int nivel = alvo.getNivel();
 				int curaBase = 10;
-				double fatorNivel = 1.0 + 0.1 * (nivel - 1); // escala baixa
+				double fatorNivel = 1.0 + 0.1 * (nivel - 1);
 				int cura = (int) Math.round(curaBase * fatorNivel);
 				alvo.receberCura(cura);
 				break;

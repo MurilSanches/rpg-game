@@ -9,9 +9,11 @@ import br.com.rpggame.personagens.Personagem;
 
 public class CombatService {
 	private final ConsoleIO io;
+	private final ItemService itemService;
 
-	public CombatService(ConsoleIO io) {
+	public CombatService(ConsoleIO io, ItemService itemService) {
 		this.io = io;
+		this.itemService = itemService;
 	}
 
 	public void batalhar(Personagem jogador, Inimigo inimigo) throws IOException {
@@ -22,7 +24,7 @@ public class CombatService {
 			io.println("Ações: 1) Atacar  2) Usar item  3) Tentar fugir");
 			String op = io.readLine();
 			if ("2".equals(op)) {
-				// consumo de item fica a cargo do chamador
+				itemService.usarItem(jogador);
 			} else if ("3".equals(op)) {
 				if (tentarFugirEmCombate()) {
 					io.println("Você conseguiu fugir!");

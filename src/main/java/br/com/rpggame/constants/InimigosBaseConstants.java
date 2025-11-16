@@ -7,7 +7,6 @@ import java.util.Map;
 import br.com.rpggame.model.EnemyInfo;
 
 public final class InimigosBaseConstants {
-	// Lobo Feroz
 	public static final String LOBO_NOME = "Lobo Feroz";
 	public static final int LOBO_HP = 25;
 	public static final int LOBO_ATK = 6;
@@ -16,7 +15,6 @@ public final class InimigosBaseConstants {
 	public static final int LOBO_LOOT_QTD = 1;
 	public static final String LOBO_LOOT_KEY = "GARRA_AFIADA";
 
-	// Bandido
 	public static final String BANDIDO_NOME = "Bandido";
 	public static final int BANDIDO_HP = 30;
 	public static final int BANDIDO_ATK = 5;
@@ -25,7 +23,6 @@ public final class InimigosBaseConstants {
 	public static final int BANDIDO_LOOT_QTD = 1;
 	public static final String BANDIDO_LOOT_KEY = "POCAO";
 
-	// Esqueleto
 	public static final String ESQUELETO_NOME = "Esqueleto";
 	public static final int ESQUELETO_HP = 28;
 	public static final int ESQUELETO_ATK = 5;

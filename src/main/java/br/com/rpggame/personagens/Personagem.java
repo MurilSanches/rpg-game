@@ -124,12 +124,7 @@ public abstract class Personagem {
 				Math.round(this.experienciaParaProximoNivel * XP_MULTIPLICADOR_NIVEL));
 	}
 
-	/**
-	 * Ganhos de atributos ao subir de nível.
-	 * Subclasses podem sobrescrever para comportamentos específicos.
-	 */
 	protected void aoSubirNivel() {
-		// Padrão: pequeno aumento genérico
 		setPontosVida(getPontosVida() + 5);
 		setAtaque(getAtaque() + 2);
 		setDefesa(getDefesa() + 1);

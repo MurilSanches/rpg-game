@@ -23,7 +23,6 @@ public class Arqueiro extends Personagem {
 		
 		int rolagem = Dado.rolar();
 		if (rolagem >= 4) {
-			// Bônus escala levemente com o nível
 			double bonusBase = 2.0;
 			double fatorNivel = 1.0 + 0.1 * (getNivel() - 1);
 			int bonus = (int) Math.round(bonusBase * fatorNivel);
@@ -34,7 +33,6 @@ public class Arqueiro extends Personagem {
 
 	@Override
 	protected void aoSubirNivel() {
-		// Arqueiro ganha um pouco menos de defesa, foco em ataque
 		setPontosVida(getPontosVida() + 8);
 		setAtaque(getAtaque() + 4);
 		setDefesa(getDefesa() + 2);

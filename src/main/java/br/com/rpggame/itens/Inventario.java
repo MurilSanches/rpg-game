@@ -77,11 +77,9 @@ public class Inventario implements Cloneable {
 		
 		String nomeNormalizado = normalizarNome(nome);
 		
-		// Busca direta iterando sobre os itens
 		Item itemEncontrado = null;
 		for (Item item : itens.keySet()) {
 			String nomeItem = normalizarNome(item.getNome());
-			// Comparação case-insensitive (funciona com acentos em Java)
 			if (nomeItem.equalsIgnoreCase(nomeNormalizado)) {
 				itemEncontrado = item;
 				break;
@@ -121,7 +119,6 @@ public class Inventario implements Cloneable {
 		
 		Item itemSelecionado = itensListados.get(indice - 1);
 		
-		// Busca o item original no inventário (não a cópia)
 		Item itemOriginal = null;
 		for (Item item : itens.keySet()) {
 			if (item.equals(itemSelecionado)) {
@@ -159,10 +156,7 @@ public class Inventario implements Cloneable {
 		if (nome == null) {
 			return "";
 		}
-		// Remove espaços no início e fim, normaliza espaços múltiplos para espaço único
-		// e remove possíveis caracteres invisíveis
 		String normalizado = nome.trim().replaceAll("\\s+", " ");
-		// Remove caracteres de controle não imprimíveis (exceto espaço)
 		normalizado = normalizado.replaceAll("[\\p{Cntrl}&&[^\r\n\t]]", "");
 		return normalizado;
 	}
